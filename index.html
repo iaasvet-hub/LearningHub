@@ -8,17 +8,22 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f9f9f9;
-      color: #333333;
+      color: #333;
       margin: 0;
       padding: 0;
     }
 
     header {
-      background-color: rgba(44, 62, 80, 0.7); /* Adjusted opacity */
+      background-color: rgba(44, 62, 80, 0.3); /* Adjusted opacity for better video visibility */
       color: white;
       padding: 1.5rem;
       text-align: center;
       position: relative; /* Needed for absolute positioning of search bar */
+      display: flex; /* Use flexbox */
+      flex-direction: column; /* Stack items vertically */
+      justify-content: center; /* Center items vertically */
+      align-items: center; /* Center items horizontally */
+      min-height: 200px; /* Give the header a minimum height */
     }
 
     h1 {
@@ -228,7 +233,7 @@
 <body>
 
   <header>
-    <video autoplay loop muted><source src="assets/video/header-bg.mp4" type="video/mp4"></video>
+    <video autoplay loop muted><source src="/content/Screen Recording 2026-01-11 at 23.21.53.mov" type="video/mp4"></video>
     <h1>Vet.IAAS Learning Hub</h1>
     <p>Animal Breeding, Genetics & Biotechnology</p>
     <div id="search-bar-container">
@@ -280,7 +285,7 @@
             <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">DNA replication</a></li>
             <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Transcription and post-translational modification</a></li>
             <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Translation and post-translational modification</a></li>
-            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Gene expression</a></li>
+            <li><a href="https://www.youtube.com/watch=v=dummy_video_id" target="_blank">Gene expression</a></li>
             <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Proteins and gene regulation</a></li>
           </ul>
         </div>
