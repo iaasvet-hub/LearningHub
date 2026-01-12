@@ -1,4 +1,7 @@
+from IPython.display import HTML
+import re
 
+html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -337,17 +340,12 @@
 
   <footer>
     <hr>
+    <p><strong>Contact:</strong></p>
     <p><strong>Dr. Aashish Dhakal</strong></p>
     <p>PhD (Animal Genetics, Breeding and Reproduction)</p>
-    <p>M. Sc. An. Sc. (Animal Breeding), B. V. Sc. & A. H.</p>
-    <p>Assistant Professor</p>
-    <p>Institute of Agriculture and Animal Science (IAAS)</p>
-    <p>Tribhuvan University (TU)</p>
-    <p>Department of Animal Science and Fisheries</p>
-    <p>Paklihawa Campus, Rupandehi, Nepal</p>
+    <p>Assistant Professor, Paklihawa Campus, IAAS, TU</p>
     <p>+977-9845278291</p>
     <p><a href="mailto:aashish.dhakal@pakc.tu.edu.np">aashish.dhakal@pakc.tu.edu.np</a></p>
-    <p><a href="mailto:dhakal.aas1988@gmail.com">dhakal.aas1988@gmail.com</a></p>
     <p>Created for educational purposes • Save this page to view offline!</p>
   </footer>
 
@@ -378,3 +376,47 @@
 
 </body>
 </html>
+"""
+
+# 1. Update CSS for footer paragraphs
+# Remove existing footer p CSS
+html_content = re.sub(
+    r'footer \{.*?\}footer p \{.*?\}',
+    r'footer {\n      text-align: center;\n      padding: 1.5rem;\n      background-color: #ecf0f1;\n      color: #7f8c8d;\n      font-size: 0.9rem;\n    }',
+    html_content, flags=re.DOTALL
+)
+
+# Add new footer p CSS for font, size, and spacing
+new_footer_p_css = '''
+    footer p {
+      margin-bottom: 0; /* Remove default margin for custom line-height */
+      margin-top: 0;    /* Remove default margin for custom line-height */
+      line-height: 1.0; /* Line spacing 1 */
+      font-family: 'Arial Rounded MT', Arial, sans-serif; /* Font style */
+      font-size: 10pt; /* Font size */
+    }
+    footer a {
+        font-family: 'Arial Rounded MT', Arial, sans-serif; /* Apply font to links too */
+        font-size: 10pt;
+    }
+'''
+html_content = html_content.replace('footer {', 'footer {' + new_footer_p_css, 1)
+
+# 2. Update the footer content
+new_footer_content = '''
+  <footer>
+    <hr>
+    <p><strong>Contact:</strong></p>
+    <p><strong>Dr. Aashish Dhakal</strong></p>
+    <p>PhD (Animal Genetics, Breeding and Reproduction)</p>
+    <p>Assistant Professor, Paklihawa Campus, IAAS, TU</p>
+    <p>+977-9845278291</p>
+    <p><a href="mailto:aashish.dhakal@pakc.tu.edu.np">aashish.dhakal@pakc.tu.edu.np</a></p>
+    <p>Created for educational purposes • Save this page to view offline!</p>
+  </footer>
+'''
+
+# Find the entire footer section and replace it
+html_content = re.sub(r'<footer>.*?</footer>', new_footer_content, html_content, flags=re.DOTALL)
+
+display(HTML(html_content))
