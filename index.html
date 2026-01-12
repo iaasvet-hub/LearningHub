@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resource Materials for Students</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vet.IAAS Learning Hub</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,173 +13,92 @@
       padding: 0;
     }
 
+    /* Header */
     header {
-      background-color: rgba(44, 62, 80, 0.3); /* Adjusted opacity for better video visibility */
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-      position: relative; /* Needed for absolute positioning of search bar */
-      display: flex; /* Use flexbox */
-      flex-direction: column; /* Stack items vertically */
-      justify-content: center; /* Center items vertically */
-      align-items: center; /* Center items horizontally */
-      min-height: 200px; /* Give the header a minimum height */
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-      background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #2980b9;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 0.5rem;
-    }
-
-    .video-container {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1rem;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0;
     }
 
-    .video-item {
-      flex: 1 1 300px;
-      min-width: 300px;
-      text-align: center;
-    }
-
-    .video-item h3 {
-      margin: 0.8rem 0 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    .thumbnail-link {
-      display: inline-block;
-      border-radius: 6px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
-      text-decoration: none;
-    }
-
-    .thumbnail-link:hover {
-      transform: scale(1.02);
-    }
-
-    .thumbnail {
+    /* Video wrapper */
+    .video-wrapper {
+      position: relative;
       width: 100%;
-      height: auto;
-      border-radius: 6px;
+      max-width: 1000px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 0 auto;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
     }
 
-    /* New CSS for Semester Courses */
-    .semester-courses-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-top: 1rem;
-      justify-content: space-around;
-    }
-
-    .degree-program {
-      flex: 1 1 45%; /* Allows two columns on wider screens, wraps on smaller */
-      min-width: 300px;
-      background: #fdfdfd;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-
-    .degree-program h3 {
-      color: #34495e;
-      margin-top: 0;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .degree-program ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .degree-program ul li {
-      margin-bottom: 0.7rem;
-    }
-
-    .degree-program ul li a {
-      text-decoration: none;
-      color: #2980b9;
-      font-weight: bold;
-      transition: color 0.2s;
-    }
-
-    .degree-program ul li a:hover {
-      color: #3498db;
-      text-decoration: underline;
-    }
-
-    /* New CSS for Topic List */
-    .topic-list {
-      margin-top: 2rem;
-      padding: 1.5rem;
-      background: #f8f8f8;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-
-    .topic-list h3 {
-      color: #2980b9;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .topic-list ul {
-      list-style: decimal; /* Use numbers for the list */
-      padding-left: 1.5rem;
-      margin: 0;
-    }
-
-    .topic-list ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .topic-list ul li a {
-      text-decoration: none;
-      color: #34495e;
-      font-weight: normal;
-      transition: color 0.2s;
-    }
-
-    .topic-list ul li a:hover {
-      color: #2980b9;
-      text-decoration: underline;
-    }
-
-    /* Search Bar Styles */
-    #search-bar-container {
+    /* Overlay container */
+    .header-overlay {
       position: absolute;
-      top: 1.5rem;
-      right: 1rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      text-align: center;
       display: flex;
+      justify-content: center;
       align-items: center;
+      z-index: 1;
+    }
+
+    /* Dark semi-transparent overlay */
+    .overlay-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+      border-radius: 8px;
+    }
+
+    /* Text container */
+    .header-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navy blue text with glowing white edges */
+    .header-text h1 {
+      font-weight: bold;
+      font-size: 24px;
+      color: navy;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #fff;
+      margin: 0.3rem 0;
+    }
+
+    .header-text p {
+      font-weight: bold;
+      font-size: 20px;
+      color: navy;
+      text-shadow:
+        0 0 3px #fff,
+        0 0 6px #fff,
+        0 0 9px #fff;
+      margin: 0.3rem 0;
+    }
+
+    /* Search bar styling */
+    #search-bar-container {
+      margin-top: 1rem;
     }
 
     #topic-search-input {
@@ -190,39 +109,16 @@
       width: 180px;
     }
 
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background-color: #ecf0f1;
-      color: #7f8c8d;
-      font-size: 0.9rem;
-    }
-
-    footer p {
-      margin-bottom: 0; /* Remove default margin for custom line-height */
-      margin-top: 0;    /* Remove default margin for custom line-height */
-      line-height: 1.0; /* Line spacing 1 */
-      font-family: 'Arial Rounded MT', Arial, sans-serif; /* Font style */
-      font-size: 10pt; /* Font size */
-    }
-    footer a {
-        font-family: 'Arial Rounded MT', Arial, sans-serif; /* Apply font to links too */
-        font-size: 10pt;
-    }
-
+    /* Responsive adjustments */
     @media (max-width: 600px) {
-      .video-item {
-        min-width: 100%;
+      .video-wrapper {
+        height: 150px;
       }
-      .degree-program {
-        min-width: 100%;
+      .header-text h1 {
+        font-size: 20px;
       }
-      #search-bar-container {
-        position: static; /* Remove absolute positioning on small screens */
-        width: 100%;
-        justify-content: center;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+      .header-text p {
+        font-size: 16px;
       }
       #topic-search-input {
         width: 90%;
@@ -233,9 +129,19 @@
 <body>
 
   <header>
-    <video autoplay loop muted><source src="assets/video/header-bg.mp4" type="video/mp4"></video>
-    <h1>Vet.IAAS Learning Hub</h1>
-    <p>Animal Breeding, Genetics & Biotechnology</p>
+    <div class="video-wrapper">
+      <video autoplay loop muted playsinline>
+        <source src="assets/video/header-bg.mp4" type="video/mp4">
+      </video>
+      <div class="header-overlay">
+        <div class="overlay-bg"></div>
+        <div class="header-text">
+          <h1>Vet.IAAS Learning Hub</h1>
+          <p>Animal Breeding, Genetics & Biotechnology</p>
+        </div>
+      </div>
+    </div>
+
     <div id="search-bar-container">
       <form action="https://www.google.com/search" method="get" target="_blank">
         <input type="text" id="topic-search-input" name="q" placeholder="Search topics...">
