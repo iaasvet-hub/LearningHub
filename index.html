@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LEARNING HUB FOR IAAS STUDENTS</title>
+  <title>Vet.IAAS Learning Hub</title>
   <style>
     /* General body */
     body {
@@ -71,7 +71,7 @@
 
     .header-text h1 {
       font-weight: bold;
-      font-size: 44px;
+      font-size: 24px;
       color: navy;
       text-shadow:
         0 0 5px #fff,
@@ -83,7 +83,7 @@
 
     .header-text p {
       font-weight: bold;
-      font-size: 30px;
+      font-size: 20px;
       color: navy;
       text-shadow:
         0 0 3px #fff,
@@ -205,7 +205,7 @@
       text-decoration: underline;
     }
 
-    /* Topic list styling */
+    /* Topic list styling with collapsible */
     .topic-list {
       margin-top: 2rem;
       padding: 1.5rem;
@@ -250,6 +250,23 @@
       padding-left: 0.3rem;
     }
 
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    details ul {
+      list-style: decimal;
+      padding-left: 1.5rem;
+      margin-top: 0.3rem;
+    }
+
+    details ul li a {
+      font-weight: normal;
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -283,10 +300,10 @@
         height: 150px;
       }
       .header-text h1 {
-        font-size: 44px;
+        font-size: 20px;
       }
       .header-text p {
-        font-size: 30px;
+        font-size: 16px;
       }
       #topic-search-input {
         width: 90%;
@@ -308,7 +325,7 @@
       <div class="header-overlay">
         <div class="overlay-bg"></div>
         <div class="header-text">
-          <h1>LEARNING HUB FOR IAAS STUDENTS</h1>
+          <h1>Vet.IAAS Learning Hub</h1>
           <p>Animal Breeding, Genetics & Biotechnology</p>
         </div>
       </div>
@@ -349,12 +366,41 @@
         </div>
       </div>
 
+      <!-- Collapsible Topics -->
       <div class="topic-list">
         <h3>Key Topics in Animal Genetics</h3>
         <ul>
-          <li><a href="#">Animal cell and their organelles</a></li>
-          <li><a href="#">Cell division: Mitosis and Meiosis</a></li>
-          <li><a href="#">Gametogenesis: Spermatogenesis and Oogenesis</a></li>
+          <li>
+            <a href="#">Animal cell and their organelles</a>
+            <details>
+              <summary>View Videos</summary>
+              <ul>
+                <li><a href="https://www.youtube.com/watch?v=5ugDJhmmkFM" target="_blank">Video 1: Animal cell and their organelles</a></li>
+                <li><a href="https://www.youtube.com/watch?v=URUJD5NEXC8" target="_blank">Video 2: Animal cell and their organelles</a></li>
+                <li><a href="https://www.youtube.com/watch?v=t5DvF5OVr1Y" target="_blank">Video 3: Animal cell and their organelles</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <a href="#">Cell division: Mitosis and Meiosis</a>
+            <details>
+              <summary>View Videos</summary>
+              <ul>
+                <li><a href="https://www.youtube.com/watch?v=GHIlA76-h3c" target="_blank">Video 1: Cell division: Mitosis and Meiosis</a></li>
+                <li><a href="https://www.youtube.com/watch?v=N97cgUqV0Cg" target="_blank">Video 2: Cell division: Mitosis and Meiosis</a></li>
+                <li><a href="https://www.youtube.com/watch?v=7ybxaYhRpIA" target="_blank">Video 3: Cell division: Mitosis and Meiosis</a></li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <a href="#">Gametogenesis: Spermatogenesis and Oogenesis</a>
+            <details>
+              <summary>View Videos</summary>
+              <ul>
+                <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Video 1: Gametogenesis</a></li>
+              </ul>
+            </details>
+          </li>
           <li><a href="#">Chromosomal Study: Karyotyping</a></li>
           <li><a href="#">Chromosomal aberrations: Structural and Numerical</a></li>
           <li><a href="#">DNA and RNA: their structure and function</a></li>
