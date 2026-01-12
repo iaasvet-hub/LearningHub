@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animal Science Resources</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: rgba(44, 62, 80, 0.7); /* Adjusted opacity */
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative; /* Needed for absolute positioning of search bar */
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #2980b9;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .video-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .video-item {
+      flex: 1 1 300px;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .video-item h3 {
+      margin: 0.8rem 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .thumbnail-link {
+      display: inline-block;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+      text-decoration: none;
+    }
+
+    .thumbnail-link:hover {
+      transform: scale(1.02);
+    }
+
+    .thumbnail {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+
+    /* New CSS for Semester Courses */
+    .semester-courses-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+      justify-content: space-around;
+    }
+
+    .degree-program {
+      flex: 1 1 45%; /* Allows two columns on wider screens, wraps on smaller */
+      min-width: 300px;
+      background: #fdfdfd;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .degree-program h3 {
+      color: #34495e;
+      margin-top: 0;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .degree-program ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .degree-program ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    .degree-program ul li a {
+      text-decoration: none;
+      color: #2980b9;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    .degree-program ul li a:hover {
+      color: #3498db;
+      text-decoration: underline;
+    }
+
+    /* New CSS for Topic List */
+    .topic-list {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #f8f8f8;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .topic-list h3 {
+      color: #2980b9;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .topic-list ul {
+      list-style: decimal; /* Use numbers for the list */
+      padding-left: 1.5rem;
+      margin: 0;
+    }
+
+    .topic-list ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .topic-list ul li a {
+      text-decoration: none;
+      color: #34495e;
+      font-weight: normal;
+      transition: color 0.2s;
+    }
+
+    .topic-list ul li a:hover {
+      color: #2980b9;
+      text-decoration: underline;
+    }
+
+    /* Search Bar Styles */
+    #search-bar-container {
+      position: absolute;
+      top: 1.5rem;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    #topic-search-input {
+      padding: 0.5rem 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      width: 180px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: #ecf0f1;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin-bottom: 0.2rem; /* Reduced spacing */
+      margin-top: 0.2rem;
+    }
+
+    @media (max-width: 600px) {
+      .video-item {
+        min-width: 100%;
+      }
+      .degree-program {
+        min-width: 100%;
+      }
+      #search-bar-container {
+        position: static; /* Remove absolute positioning on small screens */
+        width: 100%;
+        justify-content: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      #topic-search-input {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <video autoplay loop muted><source src="/content/Screen Recording 2026-01-11 at 23.21.53.mov" type="video/mp4"></video>
+    <h1>Vet.IAAS Learning Hub</h1>
+    <p>Animal Breeding, Genetics & Biotechnology</p>
+    <div id="search-bar-container">
+      <form action="https://www.google.com/search" method="get" target="_blank">
+        <input type="text" id="topic-search-input" name="q" placeholder="Search topics...">
+      </form>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Section: Animal Breeding -->
+    <section>
+      <h2>🐄 Animal Breeding</h2>
+      <div class="video-container">
+        <div class="video-item">
+          <h3>Introduction to Animal Breeding</h3>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="thumbnail-link">
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                 alt="Intro to Animal Breeding"
+                 class="thumbnail">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Animal Genetics -->
+    <section>
+      <h2>🧬 Animal Genetics</h2>
+      <div class="video-container">
+        <div class="video-item">
+          <h3>Basics of Animal Genetics</h3>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="thumbnail-link">
+            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                 alt="Animal Genetics Basics"
+                 class="thumbnail">
+          </a>
+        </div>
+      </div>
+      <div class="topic-list">
+          <h3>Key Topics in Animal Genetics</h3>
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Animal cell and their organelles</a><details><summary>View Videos</summary><ul><li><a href="https://www.youtube.com/watch?v=5ugDJhmmkFM" target="_blank">Video 1: Animal cell and their organelles</a></li><li><a href="https://www.youtube.com/watch?v=URUJD5NEXC8" target="_blank">Video 2: Animal cell and their organelles</a></li><li><a href="https://www.youtube.com/watch?v=t5DvF5OVr1Y" target="_blank">Video 3: Animal cell and their organelles</a></li></ul></details></li>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Cell division: Mitosis and Meiosis</a><details><summary>View Videos</summary><ul><li><a href="https://www.youtube.com/watch?v=GHIlA76-h3c" target="_blank">Video 1: Cell division: Mitosis and Meiosis</a></li><li><a href="https://www.youtube.com/watch?v=N97cgUqV0Cg" target="_blank">Video 2: Cell division: Mitosis and Meiosis</a></li><li><a href="https://www.youtube.com/watch?v=7ybxaYhRpIA" target="_blank">Video 3: Cell division: Mitosis and Meiosis</a></li></ul></details></li>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Gametogenesis: Spermatogenesis and Oogenesis</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Chromosomal Study: Karyotyping</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Chromosomal aberrations: Structural and Numerical</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">DNA and RNA: their structure and function</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">DNA replication</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Transcription and post-translational modification</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Translation and post-translational modification</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Gene expression</a></li>
+            <li><a href="https://www.youtube.com/watch?v=dummy_video_id" target="_blank">Proteins and gene regulation</a></li>
+          </ul>
+        </div>
+    </section>
+
+    <!-- Section: Animal Biotechnology – YOUR VIDEOS -->
+    <section>
+      <h2>🔬 Animal Biotechnology</h2>
+      <div class="video-container">
+        <div class="video-item">
+          <h3>DNA Sequencing Techniques: An Overview</h3>
+          <a href="https://www.youtube.com/watch?v=QcVK6Dr9aK4" target="_blank" class="thumbnail-link">
+            <img src="https://img.youtube.com/vi/QcVK6Dr9aK4/maxresdefault.jpg"
+                 alt="DNA Sequencing Techniques"
+                 class="thumbnail">
+          </a>
+        </div>
+        <div class="video-item">
+          <h3>Nanopore Sequencing</h3>
+          <a href="https://www.youtube.com/watch?v=FYEWrUVJ2as" target="_blank" class="thumbnail-link">
+            <img src="https://img.youtube.com/vi/FYEWrUVJ2as/maxresdefault.jpg"
+                 alt="Nanopore Sequencing"
+                 class="thumbnail">
+          </a>
+        </div>
+        <div class="video-item">
+          <h3>Expression Vectors</h3>
+          <a href="https://www.youtube.com/watch?v=bTGFsILjZAQ" target="_blank" class="thumbnail-link">
+            <img src="https://img.youtube.com/vi/bTGFsILjZAQ/maxresdefault.jpg"
+                 alt="Expression Vectors"
+                 class="thumbnail">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Courses by Semester -->
+    <section>
+      <h2>🗓️ Courses by Semester</h2>
+      <div class="semester-courses-container">
+        <div class="degree-program">
+          <h3>B. V. Sc & A. H.</h3>
+          <ul>
+            <li><a href="/content/ANB_Curriculum_merged.pdf" target="_blank">3rd Semester: Course 1 (Syllabus)</a><details><summary>Study of chromosome, DNA, central dogma and gene expression. Mendelian genetics, population genetics and quantitative genetics. Different types of gene interaction. Selection and mating systems. Animal genetic resources of Nepal and their conservation.</summary></details></li>
+            <li><a href="/content/ANB_Curriculum_merged.pdf" target="_blank">4th Semester: Course 2 (Syllabus)</a><details><summary>Fundamental concepts of biotechnology- isolation and detection of DNA and RNA, PCR, cloning of gene and expression of protein. Production of transgenic animals. Applications of biotechnology in animal reproduction.</summary></details></li>
+            <li><a href="/content/ANB_Curriculum_merged.pdf" target="_blank">8th Semester: Course 3 (Syllabus)</a><details><summary>Structure and properties of nucleic acids, recombinant DNA technology, biotechnological applications in animal improvement, nutritional biotechnology, animal tissue culture, molecular diagnosis, fermentation process, regulatory issues in biotechnology, bioinformatics and modern vaccine. Genetic diseases and gene therapy.</summary></details></li>
+            <li><a href="/content/ANB_Curriculum_merged.pdf" target="_blank">9th Semester: Course 4 (Syllabus)</a><details><summary>Heritability, repeatability, variance and gene actions. Selection and mating of livestock and poultry. Breeding of laboratory animals. Genetic aspects of poultry breeding- inheritance of traits, disease resistance, use of dwarf gene.</summary></details></li>
+          </ul>
+        </div>
+        <div class="degree-program">
+          <h3>B. Sc. Ag.</h3>
+          <ul>
+            <li><a href="/content/ANB_Curriculum_merged.pdf" target="_blank">6th Semester: Course 5 (Syllabus)</a><details><summary>Animal breeding, importance and its scope in livestock improvement. Genetic resources of Nepal. Variations and causes of variation importance of heritability and repeatability. Concept of genetic resistance to diseases and parasites. Selection differential, methods and basis of selection; Mating system inbreeding and out breeding. Nuclear transplantation, transgenic animal production and its significance in genetic improvement of livestock Hormonal mechanism in reproduction, male and female reproductive system, estrus detection, estrus cycle and induction of synchronization of ovulation. Introduction advantages and limitation of A.I. method of semen collection, dilution, preservation, thawing, transportation and technique of A.I. importance of embryo transfer, super ovulation, synchronization, collection and transfer of embryo.</summary></details></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <hr>
+    <p><strong>Dr. Aashish Dhakal</strong></p>
+    <p>PhD (Animal Genetics, Breeding and Reproduction)</p>
+    <p>M. Sc. An. Sc. (Animal Breeding), B. V. Sc. & A. H.</p>
+    <p>Assistant Professor</p>
+    <p>Institute of Agriculture and Animal Science (IAAS)</p>
+    <p>Tribhuvan University (TU)</p>
+    <p>Department of Animal Science and Fisheries</p>
+    <p>Paklihawa Campus, Rupandehi, Nepal</p>
+    <p>+977-9845278291</p>
+    <p><a href="mailto:aashish.dhakal@pakc.tu.edu.np">aashish.dhakal@pakc.tu.edu.np</a></p>
+    <p><a href="mailto:dhakal.aas1988@gmail.com">dhakal.aas1988@gmail.com</a></p>
+    <p>Created for educational purposes • Save this page to view offline!</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('topic-search-input');
+      const topicLists = document.querySelectorAll('.topic-list ul');
+
+      if (searchInput && topicLists.length > 0) {
+        searchInput.addEventListener('keyup', function() {
+          const searchTerm = searchInput.value.toLowerCase();
+
+          topicLists.forEach(ul => {
+            const listItems = ul.querySelectorAll('li');
+            listItems.forEach(item => {
+              const topicText = item.textContent.toLowerCase();
+              if (topicText.includes(searchTerm)) {
+                item.style.display = ''; // Show item
+              } else {
+                item.style.display = 'none'; // Hide item
+              }
+            });
+          });
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
